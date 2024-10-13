@@ -3,20 +3,23 @@ version: 0.2
 phases:
   pre_build:
     commands:
-       - 
+       - echo Logging / auth in to Amazon ECR
+       - aws ecr get-login-password --region $$$
 
-
-
-	build:
+  build:
     commands:
-      - 
-
+      - echo Build started
+      - echo Building the docker image
+      - docker build -t$$
+      - docker tag $$$
 
 
   post_build:
     commands:
-     - 
-
+     - echo build completed
+     - echo pushing in to docker ECR...
+     - docker push $$$$
+     docker push 034239275847.dkr.ecr.us-east-1.amazonaws.com/ecs-example:latest
 
 artifacts:
   file:
