@@ -22,5 +22,5 @@ phases:
      docker push 034239275847.dkr.ecr.us-east-1.amazonaws.com/ecs-example:latest
 
 artifacts:
-  file:
+  files:
     -imagedefinitions.json
