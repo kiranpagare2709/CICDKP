@@ -1,9 +1,20 @@
-FROM public.ecr.aws/nginx/nginx:latest
+# Use an official Node.js runtime as the base image
+FROM node:14
 
-LABEL maintainer="Lasantha" 
+# Set the working directory in the container
+WORKDIR /app
 
-COPY index.html /usr/share/nginx/html
+# Copy the package.json and package-lock.json files to the container
+COPY package*.json ./
 
-EXPOSE 80
+# Install dependencies
+RUN npm install
 
-CMD ["nginx", "-g", "daemon off;"]
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port that the app runs on (adjust as needed)
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]
